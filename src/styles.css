@@ -153,3 +153,38 @@
 @keyframes story-enter{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:700px){.story-content{margin:0 24px;width:calc(100% - 48px);padding:95px 0 75px}.story-content h1{font-size:clamp(31px,8vw,45px)}.story-copy{font-size:12px}.story-emblem{margin:25px 0}.bond-layout{display:flex;flex-direction:column;align-items:stretch;gap:0;padding:70px 22px 64px}.bond-art{position:absolute;inset:12% -28% auto auto;width:100%;height:43%;min-height:0;opacity:.45;z-index:-1}.bond-art img{height:100%;width:100%}.bond-copy{padding:75px 0 40px}.bond-copy .story-kicker{margin-top:15px}.bond-copy h1{font-size:35px}.story-progress{left:24px}}
 @media(prefers-reduced-motion:reduce){.story-content,.bond-art img{animation:none}}
+
+/* Viewport-fit cinematic intro: no inherited page footer or excess document height */
+html,body,#root{min-height:100%;margin:0}
+.story-screen{height:100vh;height:100dvh;min-height:0;box-sizing:border-box}
+.story-screen *{box-sizing:border-box}
+.story-content{max-height:100%;padding-top:clamp(64px,9vh,96px);padding-bottom:clamp(52px,8vh,76px)}
+.story-emblem{margin-top:clamp(16px,3vh,34px);margin-bottom:clamp(16px,3vh,34px)}
+.story-copy{margin:clamp(12px,2vh,22px) 0}
+.story-quote{margin:clamp(14px,2.5vh,28px) 0}
+.story-progress{bottom:clamp(16px,3vh,28px)}
+.bond-layout{height:100%;min-height:0;box-sizing:border-box;padding-top:clamp(60px,8vh,78px);padding-bottom:clamp(44px,7vh,66px)}
+.bond-art{min-height:0;height:100%;max-height:calc(100dvh - 125px)}
+.bond-art img{height:100%;max-height:calc(100dvh - 150px)}
+.bond-copy{max-height:100%;padding:clamp(40px,7vh,68px) 0}
+.bond-copy .story-kicker{margin-top:clamp(14px,3vh,34px)}
+@media(max-width:700px){
+ .story-screen{height:100dvh;min-height:0;overflow-y:auto;overscroll-behavior:contain}
+ .story-content{max-height:none;padding-top:86px;padding-bottom:74px}
+ .bond-layout{height:100%;min-height:100dvh;padding-top:55px;padding-bottom:55px;justify-content:center}
+ .bond-art{height:38dvh;max-height:38dvh}
+ .bond-art img{max-height:38dvh}
+ .bond-copy{max-height:none;padding:25px 0 38px}
+ .bond-copy .story-kicker{margin-top:10px}
+}
+@media(max-height:700px) and (min-width:701px){
+ .story-content{padding-top:58px;padding-bottom:44px}
+ .story-emblem{width:42px;height:42px;margin-top:12px;margin-bottom:18px}
+ .story-copy{font-size:12px;line-height:1.65;margin:12px 0}
+ .story-quote{font-size:13px;line-height:1.6;margin:14px 0}
+ .story-primary{padding:12px 18px}
+ .bond-layout{padding-top:48px;padding-bottom:40px}
+ .bond-copy{padding:35px 0}
+ .bond-copy .story-kicker{margin-top:12px}
+ .bond-copy .story-copy{margin:12px 0}
+}
