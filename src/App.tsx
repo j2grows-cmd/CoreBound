@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ArrowDown, ArrowRight, AudioLines, CircleHelp, Compass, Flame, Gem, Menu, Settings2, Shield, Sparkles, Swords, X } from 'lucide-react'
+import { ArrowDown, ArrowRight, AudioLines, CircleHelp, Compass, Gem, Menu, Settings2, Shield, Sparkles, X } from 'lucide-react'
 
 const elements = [
   { name: 'Flame', subtitle: 'THE UNYIELDING', color: '#ff744f', symbol: '✦', description: 'Power born from the heart of a dying star.' },
