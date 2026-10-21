@@ -25,7 +25,7 @@ function App() {
   const [combatLog,setCombatLog] = useState('The Ember Plains stir. Your first battle begins.')
   const [showSettingsMenu,setShowSettingsMenu] = useState(false)
   const hasElement=save.selectedElement>=0
-  const element=hasElement ? elements[save.selectedElement] : {id:'no-element',name:'Unbound',subtitle:'The Unawakened',color:'#c5b9a1',symbol:'◇',description:'Power not yet awakened.',art:'/assets/hero/no-element/e-rank.png',hero:'/assets/hero/no-element/e-rank.png'}
+  const element=hasElement ? elements[save.selectedElement] : {id:'no-element',name:'Unbound',subtitle:'The Unawakened',color:'#c5b9a1',symbol:'◇',description:'Power not yet awakened.',art:'/assets/companion-e-rank/rank-e-companion.png',hero:'/assets/hero/no-element/e-rank.png'}
   const isBoss=save.stage%10===0
   const enemyName=isBoss ? 'Ember Plains Warden' : enemyNames[Math.min(Math.floor((save.stage-1)/2),enemyNames.length-1)]
   const heroAttack=Math.floor((12+save.attackLevel*5+save.heroLevel*2)*(save.selectedElement===0?1.25:1))
