@@ -121,3 +121,35 @@
 @keyframes enemy-breathe{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-52%) scale(1.035)}}@keyframes rock-float{0%,100%{translate:0 0}50%{translate:0 -7px}}@keyframes damage-pop{0%{opacity:0;translate:0 12px;scale:.7}20%{opacity:1}100%{opacity:0;translate:0 -36px;scale:1.08}}
 @media(max-width:850px){.battle-topbar{gap:12px;padding:0 12px}.battle-brand span{display:none}.battle-content{padding:16px 12px}.battle-panels{grid-template-columns:1fr}.combat-arena{height:340px}.ascendant-figure{left:2%;width:34%}.enemy-figure{left:63%}.enemy-health{left:63%;width:48%}.damage-float{left:63%}.battle-currencies{gap:9px}.battle-currencies span{font-size:10px}.stage-progress{min-width:160px}.battle-bottomnav button{padding:8px 12px}}
 @media(max-width:520px){.battle-topbar{height:50px}.battle-brand{font-size:11px}.battle-back{font-size:8px}.battle-currencies span:first-child{display:none}.stage-heading{align-items:flex-start}.stage-heading h1{font-size:25px}.stage-heading h1 span{display:block;margin-top:5px;font-size:9px}.stage-progress{min-width:125px;width:42%;padding:9px}.stage-progress strong{font-size:10px}.stage-progress small{font-size:8px}.combat-arena{height:310px}.arena-label{top:16px}.arena-label strong{font-size:15px}.enemy-figure{top:48%;width:120px;scale:.85}.enemy-health{top:calc(48% + 82px);width:56%}.ascendant-figure{height:66%;width:39%;left:-2%}.ascendant-figure span{font-size:6px}.combat-controls{flex-wrap:wrap}.combat-log{flex-basis:100%;order:3}.auto-toggle,.manual-attack{flex:1}.battle-panel{padding:12px}.hero-card>img{width:78px;height:95px}.hero-card-info h2{font-size:14px}.stat-grid{gap:4px}.stat-grid>div{padding:7px 5px}.stat-grid strong{font-size:13px}.upgrade-row>button{min-width:75px}.upgrade-footer{align-items:flex-start;flex-direction:column}.battle-bottomnav{gap:2px}.battle-bottomnav button{flex:1;justify-content:center;flex-direction:column;gap:4px;padding:7px 3px;font-size:8px}.new-game-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Cinematic opening sequence */
+.story-screen{position:relative;isolation:isolate;min-height:100svh;overflow:hidden;display:flex;align-items:center;color:#f1e8d8;background:#07090e}
+.story-backdrop{position:absolute;z-index:-3;inset:0;background-image:linear-gradient(90deg,rgba(4,5,10,.94),rgba(4,5,10,.65) 48%,rgba(4,5,10,.2)),url('/assets/ui/title.png');background-size:cover;background-position:center 48%;transform:scale(1.02)}
+.story-shade{position:absolute;z-index:-2;inset:0;background:radial-gradient(ellipse at 72% 50%,transparent 0,rgba(3,4,8,.15) 44%,rgba(3,4,8,.72) 100%),linear-gradient(0deg,rgba(4,5,9,.75),transparent 22%,transparent 78%,rgba(4,5,9,.55))}
+.story-content{width:min(690px,calc(100% - 48px));margin:0 clamp(24px,9vw,150px);padding:90px 0 70px;animation:story-enter .7s ease both}
+.story-emblem{width:54px;height:54px;display:grid;place-items:center;border:1px solid rgba(219,177,103,.55);color:#e5bd79;transform:rotate(45deg);margin:34px 0 34px 8px;box-shadow:0 0 32px rgba(204,146,65,.12)}
+.story-emblem svg{transform:rotate(-45deg)}
+.story-kicker{margin:0 0 16px;font-size:9px;letter-spacing:.28em;color:#d8b573}
+.story-content h1{margin:0;font:500 clamp(34px,5vw,62px)/1.1 'Space Grotesk',sans-serif;letter-spacing:-.04em;color:#f6ead6;text-shadow:0 3px 28px #000}
+.story-content h1 span{color:#d8b579}
+.story-copy{max-width:550px;font:400 14px/1.9 'DM Sans',sans-serif;color:#c1bdba;margin:22px 0}
+.story-quote{border-left:1px solid #b88b4b;padding:4px 0 4px 18px;margin:28px 0;font:400 15px/1.9 'Space Grotesk',sans-serif;color:#c9c2b7;letter-spacing:.03em}
+.story-quote strong{color:#f0c77f;font-weight:500}
+.story-primary{display:inline-flex;align-items:center;justify-content:center;gap:20px;min-width:190px;padding:15px 20px;border:1px solid #c29a59;background:linear-gradient(100deg,rgba(107,65,19,.78),rgba(25,19,15,.88));color:#f7e7c8;font-size:9px;letter-spacing:.2em;clip-path:polygon(10px 0,calc(100% - 10px) 0,100% 50%,calc(100% - 10px) 100%,10px 100%,0 50%);transition:filter .2s,transform .2s}
+.story-primary:hover{filter:brightness(1.25);transform:translateY(-2px)}
+.story-skip{position:absolute;right:clamp(20px,4vw,60px);top:28px;display:flex;align-items:center;gap:9px;border:0;background:transparent;color:#b8ae9b;font-size:9px;letter-spacing:.17em}
+.story-progress{position:absolute;bottom:28px;left:clamp(24px,9vw,150px);display:flex;align-items:center;gap:13px;font-size:8px;letter-spacing:.2em;color:#938978}
+.story-progress i{width:45px;height:1px;background:linear-gradient(90deg,#d4a85f 33%,rgba(212,168,95,.2) 33%)}
+.bond-screen .story-backdrop{background-position:65% center}
+.bond-layout{width:min(1300px,100%);min-height:100svh;margin:auto;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:70px clamp(24px,5vw,80px) 55px;gap:20px}
+.bond-art{position:relative;display:grid;place-items:center;min-height:450px}
+.bond-art img{position:relative;z-index:1;width:100%;height:min(65svh,600px);object-fit:contain;filter:drop-shadow(0 15px 40px rgba(0,0,0,.7));animation:title-hero-float 7s ease-in-out infinite}
+.bond-art-glow{position:absolute;inset:20%;background:radial-gradient(ellipse,rgba(131,89,213,.24),transparent 65%);filter:blur(35px)}
+.bond-copy{width:100%;margin:0;padding:60px 0}
+.bond-copy .story-kicker{margin-top:34px}
+.bond-copy h1{font-size:clamp(32px,4vw,53px)}
+.story-choice{display:flex;flex-direction:column;align-items:flex-start;gap:13px;margin-top:32px}
+.story-choice>span{font-size:8px;letter-spacing:.22em;color:#9e9588}
+@keyframes story-enter{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:700px){.story-content{margin:0 24px;width:calc(100% - 48px);padding:95px 0 75px}.story-content h1{font-size:clamp(31px,8vw,45px)}.story-copy{font-size:12px}.story-emblem{margin:25px 0}.bond-layout{display:flex;flex-direction:column;align-items:stretch;gap:0;padding:70px 22px 64px}.bond-art{position:absolute;inset:12% -28% auto auto;width:100%;height:43%;min-height:0;opacity:.45;z-index:-1}.bond-art img{height:100%;width:100%}.bond-copy{padding:75px 0 40px}.bond-copy .story-kicker{margin-top:15px}.bond-copy h1{font-size:35px}.story-progress{left:24px}}
+@media(prefers-reduced-motion:reduce){.story-content,.bond-art img{animation:none}}
