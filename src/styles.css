@@ -25,3 +25,68 @@
 @media(min-width:1500px){.hero-with-title-art .hero-art{height:460px}}
 @media(max-width:1100px){.hero-with-title-art .hero-art{height:390px}}
 @media(max-width:760px){.hero-with-title-art{background-position:center center}.hero-with-title-art .hero-art{height:300px;margin-top:-10px}.hero-character{max-width:340px}.hero-art-overlay{bottom:26px}.hero-art-overlay b{font-size:16px}.hero-with-title-art .art-caption{bottom:0}.detail-hero-thumb{width:65px;height:76px}.codex-hero-frame{height:210px;margin:-30px -30px 22px}}
+
+/* Premium game title screen */
+.title-shell{padding:0;min-height:100vh;background:#05070b}
+.title-screen{position:relative;isolation:isolate;min-height:100svh;overflow:hidden;color:#f8ead2;background:#07090e}
+.title-backdrop{position:absolute;z-index:-3;inset:0;background-image:url('/assets/ui/title.png');background-size:cover;background-position:center 48%;transform:scale(1.015)}
+.title-vignette{position:absolute;z-index:-2;inset:0;background:linear-gradient(90deg,rgba(3,5,9,.97) 0%,rgba(4,6,10,.89) 22%,rgba(4,6,10,.52) 39%,rgba(4,6,10,.06) 67%,rgba(4,6,10,.18) 100%),linear-gradient(0deg,rgba(3,5,9,.8),transparent 18%,transparent 80%,rgba(3,5,9,.65)),radial-gradient(ellipse at 55% 45%,transparent 20%,rgba(0,0,0,.24) 100%)}
+.title-topline{position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:24px clamp(24px,4vw,64px);font-size:9px;letter-spacing:.2em;color:#c2b59e;border-bottom:1px solid rgba(222,188,128,.13)}
+.title-topline>span,.title-topline .sound-button{display:flex;align-items:center;gap:9px}
+.title-status-dot{width:5px;height:5px;border-radius:50%;background:#e8b85f;box-shadow:0 0 10px #e8b85f}
+.sound-button{border:0;background:transparent;color:#bdb4a5;font-size:9px;letter-spacing:.14em}
+.title-layout{width:min(1500px,100%);min-height:100svh;margin:auto;display:grid;grid-template-columns:minmax(360px, .78fr) minmax(0,1.22fr);align-items:center;padding:94px clamp(24px,4vw,64px) 65px}
+.title-menu-column{position:relative;z-index:2;max-width:480px}
+.title-brand-lockup{position:relative;text-align:left}
+.title-brand-icon{display:inline-grid;place-items:center;vertical-align:middle;width:45px;height:45px;margin-right:13px;border:1px solid rgba(231,183,98,.65);color:#f0c77e;transform:rotate(45deg);box-shadow:0 0 25px rgba(229,157,51,.12)}
+.title-brand-icon svg{transform:rotate(-45deg)}
+.title-brand-name{display:inline-block;vertical-align:middle;font:500 clamp(35px,4.1vw,62px)/.95 'Space Grotesk',sans-serif;letter-spacing:-.065em;color:#f7e8c7;text-shadow:0 3px 25px rgba(0,0,0,.7)}
+.title-brand-name span{font-weight:300;color:#d4b47b}
+.title-brand-subtitle{margin:14px 0 0 59px;font-size:10px;letter-spacing:.34em;color:#d8c8a9;white-space:nowrap}
+.title-brand-rule{position:relative;width:82%;height:1px;margin:22px 0 0 0;background:linear-gradient(90deg,#bd8740,rgba(221,177,105,.02))}
+.title-brand-rule i{position:absolute;left:45%;top:-3px;width:7px;height:7px;border:1px solid #d8a657;transform:rotate(45deg);background:#17120c}
+.title-tagline{margin:19px 0 29px;font-size:9px;letter-spacing:.24em;color:#c9a96e}
+.title-story{display:flex;flex-direction:column;font:500 clamp(27px,2.65vw,39px)/1.12 'Space Grotesk',sans-serif;letter-spacing:.01em;color:#f3e5cd;text-shadow:0 2px 15px #000}
+.title-story>span:nth-child(2){color:#e4b86e}
+.title-story p{font:400 13px/1.8 'DM Sans',sans-serif;letter-spacing:.015em;color:#c4c1bd;margin:17px 0 22px;text-shadow:0 2px 12px #000}
+.main-menu{display:flex;flex-direction:column;gap:7px;width:min(100%,365px)}
+.main-menu-item{position:relative;display:grid;grid-template-columns:34px 1fr 20px;align-items:center;gap:13px;min-height:57px;padding:9px 16px;text-align:left;color:#e6dfd1;border:1px solid rgba(207,170,106,.36);background:linear-gradient(100deg,rgba(7,9,13,.88),rgba(9,10,14,.56));clip-path:polygon(12px 0,calc(100% - 12px) 0,100% 50%,calc(100% - 12px) 100%,12px 100%,0 50%);transition:background .2s,border-color .2s,transform .2s;backdrop-filter:blur(8px)}
+.main-menu-item:hover,.main-menu-item:focus-visible{transform:translateX(4px);border-color:#f3c56f;background:linear-gradient(90deg,rgba(107,65,16,.74),rgba(10,11,14,.8));outline:none}
+.main-menu-item.featured{border-color:#f6c66f;background:linear-gradient(90deg,rgba(107,63,10,.8),rgba(17,13,10,.82));box-shadow:inset 0 0 24px rgba(233,159,46,.12),0 0 20px rgba(229,159,54,.09)}
+.menu-icon{display:grid;place-items:center;color:#e7b45f}
+.main-menu-item>span:nth-child(2){font:500 14px 'Space Grotesk',sans-serif;letter-spacing:.1em;text-transform:uppercase}
+.main-menu-item small{display:block;margin-top:4px;font:400 9px 'DM Sans',sans-serif;letter-spacing:.04em;text-transform:none;color:#9b9589}
+.menu-arrow{color:#d9ac62;transition:transform .2s}
+.main-menu-item:hover .menu-arrow{transform:translateX(3px)}
+.title-character-stage{position:relative;align-self:stretch;display:flex;align-items:flex-end;justify-content:center;min-height:520px;margin-left:-10%;pointer-events:none}
+.title-character-stage:before{content:'';position:absolute;bottom:4%;left:4%;right:0;height:24%;background:radial-gradient(ellipse,rgba(235,135,33,.23),transparent 70%);filter:blur(24px)}
+.title-character-glow{position:absolute;bottom:13%;left:22%;width:45%;height:65%;background:radial-gradient(ellipse,rgba(247,109,25,.2),transparent 66%);filter:blur(30px)}
+.title-character-stage img{position:relative;z-index:1;display:block;width:100%;height:min(76svh,760px);max-height:760px;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 18px 28px rgba(0,0,0,.72));animation:title-hero-float 7s ease-in-out infinite}
+.character-nameplate{position:absolute;z-index:2;bottom:5%;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:7px;white-space:nowrap;text-shadow:0 2px 12px #000}
+.character-nameplate span{font-size:8px;letter-spacing:.25em;color:#d5b16d}
+.character-nameplate strong{font:500 16px 'Space Grotesk',sans-serif;letter-spacing:.2em;color:#f4e2bd}
+.title-footer{display:flex;justify-content:space-between;align-items:center;gap:12px;width:min(100%,365px);margin-top:22px;font-size:8px;letter-spacing:.1em;color:#8c8579}
+.title-footer span:last-child{display:flex;align-items:center;gap:5px}
+.title-footer svg{color:#d5ac65}
+.title-notice{display:flex;align-items:center;gap:12px;justify-content:space-between;max-width:365px;margin-top:12px;padding:12px 14px;border:1px solid rgba(229,181,96,.45);background:rgba(10,10,12,.9);color:#e8d7b6;font-size:11px;line-height:1.6}
+.title-notice button{background:none;border:0;color:#e8d7b6;font-size:18px}
+.title-bottomline{position:absolute;bottom:19px;left:clamp(24px,4vw,64px);right:clamp(24px,4vw,64px);display:flex;align-items:center;justify-content:center;gap:13px;font-size:8px;letter-spacing:.22em;color:#a99a80}
+.title-bottomline i{width:55px;height:1px;background:linear-gradient(90deg,transparent,rgba(209,169,98,.5),transparent)}
+.title-bottomline span{color:#d4aa60}
+.back-link{display:block;margin-bottom:30px;padding:9px 0;border:0;background:none;color:#c8ad7f;font-size:10px;letter-spacing:.14em}
+.new-game-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:35px}
+.new-game-element{--element:#c6a779;display:flex;flex-direction:column;align-items:center;gap:7px;padding:16px 8px;border:1px solid rgba(255,255,255,.09);background:#11141b;color:#eee5d7}
+.new-game-element img{width:70px;height:70px;object-fit:contain}
+.new-game-element strong{font:500 13px 'Space Grotesk',sans-serif}
+.new-game-element span{font-size:8px;letter-spacing:.12em;color:#96939a}
+.new-game-element:hover,.new-game-element.chosen{border-color:var(--element);background:color-mix(in srgb,var(--element) 9%,#11141b)}
+.chosen-element-panel{--element:#c6a779;display:flex;align-items:center;gap:22px;margin-top:15px;padding:16px;border:1px solid color-mix(in srgb,var(--element) 35%,transparent);background:color-mix(in srgb,var(--element) 6%,#101219)}
+.chosen-element-panel>img{width:100px;height:115px;object-fit:contain}
+.chosen-element-panel>div{flex:1}
+.chosen-element-panel h2{font:500 26px 'Space Grotesk',sans-serif;margin:7px 0}
+.chosen-element-panel p{font-size:11px;color:#9b9ca4}
+.game-notice{color:#d8bd91;font-size:12px}
+@keyframes title-hero-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@media(max-width:950px){.title-layout{grid-template-columns:minmax(320px,.9fr) minmax(0,1.1fr);padding-left:25px;padding-right:25px}.title-brand-name{font-size:clamp(32px,4.6vw,45px)}.title-character-stage{margin-left:-18%;min-height:460px}.title-character-stage img{height:68svh}.title-story{font-size:29px}}
+@media(max-width:680px){.title-screen{min-height:100svh}.title-backdrop{background-position:58% center}.title-vignette{background:linear-gradient(90deg,rgba(3,5,9,.9),rgba(3,5,9,.62)),linear-gradient(0deg,rgba(3,5,9,.92),transparent 35%,rgba(3,5,9,.3))}.title-topline{padding:17px 20px;font-size:7px}.title-topline .sound-button{font-size:7px}.title-layout{display:flex;flex-direction:column;align-items:stretch;padding:84px 22px 56px;gap:0}.title-menu-column{max-width:none}.title-brand-name{font-size:clamp(33px,10vw,47px)}.title-brand-subtitle{font-size:8px;letter-spacing:.22em;margin-left:0}.title-brand-icon{width:35px;height:35px;margin-right:10px}.title-brand-icon svg{width:22px}.title-tagline{font-size:8px;margin:14px 0 22px}.title-story{font-size:29px}.title-story p{font-size:12px;margin:12px 0 16px}.main-menu{width:100%;max-width:none;gap:6px}.main-menu-item{min-height:51px}.title-character-stage{position:absolute;z-index:-1;right:-35%;top:15%;width:100%;height:52%;min-height:0;margin:0;opacity:.34}.title-character-stage img{height:100%;width:100%}.character-nameplate{display:none}.title-footer{width:100%;font-size:7px}.title-bottomline{bottom:12px;font-size:7px;gap:8px}.title-bottomline i{width:20px}.new-game-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.chosen-element-panel{flex-wrap:wrap}.chosen-element-panel>img{width:75px;height:90px}.chosen-element-panel .primary-button{width:100%}}
+@media(prefers-reduced-motion:reduce){.title-character-stage img{animation:none}}
