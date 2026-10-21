@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ArrowLeft, ArrowRight, BookOpen, FlaskConical, Gem, Heart, Map, Package, PawPrint, ScrollText, Settings, Shield, ShoppingBag, Swords, Trophy, X, Zap, Coins, Sparkles, Menu, ChevronRight, Search, Plus, Lock, CheckCircle2 } from 'lucide-react'
+import { ArrowLeft, ArrowRight, BookOpen, FlaskConical, Gem, Heart, Map, Package, PawPrint, ScrollText, Settings, Shield, ShoppingBag, Swords, Trophy, X, Zap, Coins, Sparkles, Menu, ChevronRight, Search, Lock, CheckCircle2 } from 'lucide-react'
 import { elements } from './data/elements'
 
 type View='sanctuary'|'companion'|'growth'|'abilities'|'map'|'area'|'exploration'|'battle'|'victory'|'inventory'|'laboratory'|'quests'|'shop'|'settings'|'achievements'|'credits'
@@ -11,7 +11,6 @@ export default function GameWorld({onExit}:{onExit:()=>void}){
  const say=(s:string)=>{setToast(s);window.setTimeout(()=>setToast(''),2400)}
  const go=(v:View)=>{setView(v);setToast('')}
  const win=()=>{setGold(g=>g+150);setShards(s=>s+2);setKills(k=>k+1);go('victory')}
- const iconMap:Record<string,any>={sanctuary:Gem,companion:PawPrint,map:Map,quests:ScrollText,inventory:Package,laboratory:FlaskConical,shop:ShoppingBag,achievements:Trophy,settings:Settings}
  return <section className="world-shell"><header className="world-topbar"><button className="world-mark" onClick={()=>go('sanctuary')}><Gem size={19}/><span>CORE<span>BOUND</span><small>CHRONICLES OF THE ELEMENTS</small></span></button><div className="world-resources"><span><Coins size={15}/> {gold.toLocaleString()}</span><span><Gem size={15}/> {shards.toLocaleString()}</span><span className="resource-purple">✦ {level+5}</span></div><button className="world-exit" onClick={onExit}><X size={17}/><span>MENU</span></button></header>
  <div className="world-layout"><aside className="world-sidebar"><div className="sidebar-label">THE CORE SANCTUARY</div>{nav.map(n=>{const I=n.icon;return <button key={n.id} className={view===n.id?'world-nav active':'world-nav'} onClick={()=>go(n.id)}><I size={16}/>{n.label}<ChevronRight size={13}/></button>})}<div className="sidebar-bottom"><div className="mini-pet"><img src={el.art}/><span><b>{petName}</b><small>Bond Lv. {level+4}</small></span></div><button className="world-nav" onClick={()=>go('credits')}><BookOpen size={16}/>Credits</button></div></aside>
  <main className="world-main">
