@@ -38,23 +38,23 @@ function App() {
   useEffect(()=>{
     if(screen!=='battle'||paused||!save.auto)return
     const timer=window.setInterval(()=>{
-      setEnemyHp(current=>{
-        const next=current-heroAttack
-        setFloatDamage(heroAttack)
-        if(next<=0){
-          const reward=12+save.stage*4+(isBoss?100:0)
-          const xpGain=10+save.stage*2
-          setSave(prev=>({...prev,gold:prev.gold+reward,stage:prev.stage+1,xp:prev.xp+xpGain,kills:prev.kills+1,heroLevel:prev.xp+xpGain>=prev.heroLevel*100?prev.heroLevel+1:prev.heroLevel,lastSeen:Date.now()}))
-          setCombatLog(isBoss?'Warden defeated! A major victory. The path forward is open.':enemyName+' defeated. You gather '+reward+' gold.')
-          setEnemyMaxHp(Math.floor(80*Math.pow(1.24,save.stage)*( (save.stage+1)%10===0?4:1)))
-          return Math.floor(80*Math.pow(1.24,save.stage)*((save.stage+1)%10===0?4:1))
-        }
-        return next
-      })
+      setFloatDamage(heroAttack)
+      if(enemyHp-heroAttack<=0){
+        const reward=12+save.stage*4+(isBoss?100:0)
+        const xpGain=10+save.stage*2
+        setSave(prev=>{const totalXp=prev.xp+xpGain;const newLevel=Math.max(prev.heroLevel,Math.floor(totalXp/100)+1);return {...prev,gold:prev.gold+reward,stage:prev.stage+1,xp:totalXp,kills:prev.kills+1,heroLevel:newLevel,lastSeen:Date.now()}})
+        setCombatLog(isBoss?'Warden defeated! A major victory. The path forward is open.':enemyName+' defeated. You gather '+reward+' gold.')
+        const nextStage=save.stage+1
+        const nextHp=Math.floor(80*Math.pow(1.24,nextStage)*(nextStage%10===0?4:1))
+        setEnemyMaxHp(nextHp)
+        setEnemyHp(nextHp)
+      }else{
+        setEnemyHp(enemyHp-heroAttack)
+      }
       setHeroHp(current=>{const max=100+save.hpLevel*25+save.heroLevel*8;const incoming=Math.max(1,Math.floor(save.stage*1.2)-save.defenceLevel*2);const next=current-incoming;if(next<=0){setCombatLog('You were knocked back. Your Ascendant recovers and returns to the fight.');return max}return next})
     },1000)
     return ()=>window.clearInterval(timer)
-  },[screen,paused,save.auto,save.stage,save.attackLevel,save.heroLevel,save.hpLevel,save.defenceLevel,save.selectedElement,heroAttack,isBoss,enemyName])
+  },[screen,paused,save.auto,save.stage,save.attackLevel,save.heroLevel,save.hpLevel,save.defenceLevel,save.selectedElement,heroAttack,isBoss,enemyName,enemyHp])
   const beginNew=()=>{const next={...freshSave,lastSeen:Date.now()};setSave(next);setSelected(0);setPaused(false);setNotice('');setScreen('new-game')}
   const continueGame=()=>{const stored=readSave();if(stored){const elapsed=Math.max(0,Math.min(8*60*60,Math.floor((Date.now()-stored.lastSeen)/1000)));const reward=Math.floor(elapsed*(12+stored.stage*2)/10);setSave({...stored,gold:stored.gold+reward,lastSeen:Date.now()});setNotice(reward>0?'While you were away, your Ascendant earned '+format(reward)+' gold.':'Welcome back, Ascendant.');setScreen('battle')}else setNotice('No save found yet. Begin a new journey.')}
   const upgrade=(kind:'attack'|'hp'|'defence')=>{const cost=kind==='attack'?attackCost:kind==='hp'?hpCost:defenceCost;if(save.gold<cost){setCombatLog('Not enough gold. Defeat more enemies to earn the upgrade.');return}setSave(prev=>({...prev,gold:prev.gold-cost,[kind==='attack'?'attackLevel':kind==='hp'?'hpLevel':'defenceLevel']:prev[kind==='attack'?'attackLevel':kind==='hp'?'hpLevel':'defenceLevel']+1,lastSeen:Date.now()}));setCombatLog(kind.toUpperCase()+' upgraded. Your Ascendant grows stronger.')}
