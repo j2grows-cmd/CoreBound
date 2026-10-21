@@ -45,7 +45,7 @@ function App() {
               </div>
               <div className="hero-meta"><span className="live-pip" /> <span>THE FIRST AGE</span><i /> <span>VOL. 01 — THE AWAKENING</span></div>
             </div>
-            <div className="hero-art" aria-label={`Selected element: ${element.name}`}>
+            <div className="hero-art" style={{ '--element': element.color } as React.CSSProperties} aria-label={`Selected element: ${element.name}`}>
               <div className="hero-art-halo" />
               <img className="hero-character" src={element.hero} alt={`${element.name} element D-rank hero artwork`} />
               <div className="hero-art-overlay"><span>D-RANK AWAKENED</span><b>{element.name.toUpperCase()}</b></div>
