@@ -188,3 +188,48 @@ html,body,#root{min-height:100%;margin:0}
  .bond-copy .story-kicker{margin-top:12px}
  .bond-copy .story-copy{margin:12px 0}
 }
+
+/* Hard viewport lock for cinematic onboarding: constrain descendants, not just the outer section. */
+html,body,#root{width:100%;height:100%;min-height:0;overflow:hidden}
+.game-shell:has(.story-screen){height:100dvh;min-height:0;overflow:hidden}
+.story-screen{position:relative;width:100%;height:100dvh;min-height:0;max-height:100dvh;overflow:hidden;overscroll-behavior:none}
+.story-content{width:min(650px,calc(100% - 48px));max-height:calc(100dvh - 100px);overflow:hidden;padding:0;margin-left:clamp(24px,8vw,130px);margin-right:24px;display:flex;flex-direction:column;justify-content:center}
+.story-emblem{flex:none}
+.story-copy{flex:none;line-height:1.65}
+.story-quote{flex:none}
+.story-progress{position:absolute;bottom:18px}
+.bond-layout{height:100dvh;max-height:100dvh;min-height:0;overflow:hidden;grid-template-columns:minmax(0,1fr) minmax(0,1fr);padding:48px clamp(24px,5vw,72px) 44px;gap:clamp(16px,3vw,46px)}
+.bond-art{height:100%;max-height:calc(100dvh - 92px);min-height:0;overflow:hidden}
+.bond-art img{width:100%;height:100%;max-height:calc(100dvh - 110px);object-fit:contain}
+.bond-copy{width:100%;max-height:100%;overflow:hidden;padding:0;justify-content:center}
+.bond-copy .story-kicker{margin-top:clamp(8px,1.5vh,18px)}
+.bond-copy .story-copy{margin:clamp(8px,1.5vh,16px) 0}
+.story-choice{margin-top:clamp(10px,2vh,22px)}
+.story-primary{flex:none}
+@media(max-width:700px){
+ .story-content{width:calc(100% - 44px);max-height:calc(100dvh - 105px);margin:0 22px;padding:0;overflow:hidden}
+ .story-content h1{font-size:clamp(28px,7.5vw,42px)}
+ .story-copy{font-size:12px;line-height:1.55}
+ .story-emblem{width:40px;height:40px;margin:15px 0}
+ .story-quote{font-size:12px;line-height:1.6;margin:12px 0}
+ .bond-layout{display:grid;grid-template-columns: minmax(0, .75fr) minmax(0,1.25fr);gap:8px;padding:58px 16px 42px}
+ .bond-art{position:relative;inset:auto;width:100%;height:100%;max-height:calc(100dvh - 100px);opacity:1;z-index:0}
+ .bond-art img{width:100%;height:100%;max-height:calc(100dvh - 110px)}
+ .bond-copy{padding:0;max-height:100%;overflow:hidden}
+ .bond-copy h1{font-size:clamp(23px,5.7vw,34px)}
+ .bond-copy .story-kicker{font-size:7px;letter-spacing:.16em}
+ .bond-copy .story-copy{font-size:10px;line-height:1.5}
+ .story-choice>span{font-size:7px}
+ .story-primary{min-width:0;padding:12px 16px;gap:10px;font-size:8px}
+}
+@media(max-height:620px){
+ .story-content h1{font-size:clamp(26px,4.3vw,38px)}
+ .story-emblem{width:34px;height:34px;margin:8px 0}
+ .story-kicker{margin-bottom:8px;font-size:8px}
+ .story-copy{font-size:11px;line-height:1.45;margin:8px 0}
+ .story-quote{font-size:11px;line-height:1.4;margin:8px 0;padding-left:12px}
+ .story-primary{padding:10px 16px}
+ .bond-layout{padding-top:42px;padding-bottom:32px}
+ .bond-copy h1{font-size:clamp(22px,3.4vw,32px)}
+ .bond-copy .story-copy{font-size:10px}
+}
