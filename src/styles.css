@@ -233,3 +233,16 @@ html,body,#root{width:100%;height:100%;min-height:0;overflow:hidden}
  .bond-copy h1{font-size:clamp(22px,3.4vw,32px)}
  .bond-copy .story-copy{font-size:10px}
 }
+
+/* First Contact: bespoke Foundling artwork and premium choice treatment */
+.foundling-art{position:relative;z-index:1;width:100%;height:100%;max-height:calc(100dvh - 150px);overflow:visible;filter:drop-shadow(0 18px 35px rgba(0,0,0,.75));animation:foundling-breathe 5s ease-in-out infinite}
+.foundling-caption{position:absolute;z-index:2;bottom:4%;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:5px;white-space:nowrap;text-shadow:0 2px 10px #000}
+.foundling-caption span{font-size:7px;letter-spacing:.22em;color:#c7b8d5}
+.foundling-caption b{font:500 15px 'Space Grotesk',sans-serif;letter-spacing:.17em;color:#f0e4f8}
+.foundling-caption i{font-style:normal;font-size:7px;letter-spacing:.13em;color:#ba86ec}
+.bond-actions{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.story-secondary{min-width:190px;padding:13px 20px;background:rgba(5,5,10,.6);border:1px solid rgba(200,177,218,.22);color:#bdb2c6;font-size:9px;letter-spacing:.2em;transition:border-color .2s,color .2s}
+.story-secondary:hover{border-color:rgba(188,126,255,.7);color:#f0e4fa}
+@keyframes foundling-breathe{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-5px) scale(1.006)}}
+@media(max-width:700px){.foundling-art{max-height:calc(100dvh - 110px)}.foundling-caption{bottom:2%}.foundling-caption b{font-size:11px}.bond-actions{gap:7px}.story-secondary{min-width:0;padding:10px 14px}}
+@media(prefers-reduced-motion:reduce){.foundling-art{animation:none}}
